@@ -1,5 +1,6 @@
 
 require_relative "futbol"
+
 class GamesStats < Futbol
 
   def initialize(locations)

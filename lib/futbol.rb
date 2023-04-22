@@ -1,7 +1,7 @@
-require 'csv'
+require "csv"
 
 class Futbol
-  attr_accessor :games,
+  attr_accessor :games
           
   attr_reader :teams,
               :game_teams
