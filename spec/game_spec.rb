@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe Game do
   before(:each) do
@@ -22,8 +22,8 @@ RSpec.describe Game do
       )
   end
 
-  describe '#initialize' do
-    it 'can initialize with attributes' do
+  describe "#initialize" do
+    it "can initialize with attributes" do
       expect(@game1).to be_a(Game)
       expect(@game1.game_id).to eq("5")
       expect(@game1.away_team_id).to eq("2")
