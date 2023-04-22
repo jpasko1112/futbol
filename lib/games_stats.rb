@@ -1,3 +1,4 @@
+
 require_relative "futbol"
 class GamesStats < Futbol
 
@@ -54,5 +55,33 @@ class GamesStats < Futbol
     end
     (num_ties.to_f/num_games).round(2)
   end
-end
 
+  def count_of_games_by_season
+    game_count = Hash.new(0)
+    games.map do |game|
+      game_count[game.season] += 1
+    end
+    game_count
+  end
+
+  def average_goals_per_game
+    all_season_goals = games.sum do |game|
+      game.away_team_goals + game.home_team_goals
+    end
+    all_season_goals.fdiv(games.length).round(2)
+  end
+
+  def average_goals_by_season
+    goalie_goals.merge!(count_of_games_by_season) do |season, goals, games|
+      goals.fdiv(games).round(2)
+    end
+  end
+
+  def goalie_goals
+    go_gos = Hash.new(0)
+    games.each do |game|
+      go_gos[game.season] += game.total_score
+    end
+    go_gos
+  end
+end
