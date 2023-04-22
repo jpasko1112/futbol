@@ -30,7 +30,6 @@ class LeagueStats < Futbol
     sorted[0]
   end
 
-
   def highest_scoring_visitor
     best_offense = Hash.new(0)
     @games.each do |game|
