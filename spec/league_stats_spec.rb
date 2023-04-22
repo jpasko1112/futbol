@@ -14,7 +14,6 @@ RSpec.describe LeagueStats do
       @league_stats = LeagueStats.new(@locations)
       @league_stats.merge_game_game_teams
       @league_stats.merge_teams_to_game_game_teams
-      require 'pry'; binding.pry
   end
   # league_stats tests below are basic tests that are also
   # tested in stat_tracker
@@ -54,14 +53,40 @@ RSpec.describe LeagueStats do
     end
 
     it 'returns string of lowest scoring home team' do 
-      expect(@LeagueStats.lowest_scoring_home_team).to eq("Utah Royals FC")
+      expect(@league_stats.lowest_scoring_home_team).to eq("Utah Royals FC")
     end
   end
 
   # we will add additional tests as needed to ensure helper
   # methods are functioning correctly
   describe '#helper methods' do
-  
+    it 'average number of goals method' do
+      expect(@league_stats.average_number_of_goals("3")).to be_a(Float)
+    end
+
+    it 'average number of goals home method' do
+      expect(@league_stats.average_number_of_goals("3")).to be_a(Float)
+    end
+    
+    it 'average number of goals visitor method' do
+      expect(@league_stats.average_number_of_goals("3")).to be_a(Float)
+    end
+    
+    it 'total goals by team' do
+      expect(@league_stats.total_goals_by_team("3")).to eq(1129)
+    end
+
+    it 'total games by team' do
+      expect(@league_stats.total_games_by_team("3")).to eq(531)
+    end
+
+    it 'team id into name method' do
+      expect(@league_stats.team_id_into_name("3")).to eq("Houston Dynamo")
+    end
+
+    it 'filter by team id' do
+      expect(@league_stats.filter_by_team_id("3")).to be_an(Array)
+    end
   end
 
 end
