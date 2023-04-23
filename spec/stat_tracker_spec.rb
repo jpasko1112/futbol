@@ -10,7 +10,7 @@ RSpec.describe StatTracker do
       teams: team_path,
       game_teams: game_teams_path
     }
-    @stat_tracker = StatTracker.new(locations)
+    @stat_tracker = StatTracker.new(@locations)
     @stat_tracker.game.merge_game_game_teams
     @stat_tracker.game.merge_teams_to_game_game_teams
     @stat_tracker.league.merge_game_game_teams
