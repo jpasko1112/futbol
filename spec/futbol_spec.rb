@@ -1,10 +1,10 @@
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe Futbol do
   before(:each) do
-    game_path = './data/games.csv'
-    team_path = './data/teams.csv'
-    game_teams_path = './data/game_teams.csv'
+    game_path = "./data/games.csv"
+    team_path = "./data/teams.csv"
+    game_teams_path = "./data/game_teams.csv"
 
     locations = {
     games: game_path,
@@ -13,7 +13,6 @@ RSpec.describe Futbol do
     }
 
     @futbol = Futbol.new(locations)
-    
   end
 
   describe "#initialize" do
@@ -41,8 +40,8 @@ RSpec.describe Futbol do
     end
   end
 
-    describe 'merge_game_game_teams' do 
-      it 'merges Team attribute data into Game attribuest in @games' do
+    describe "merge_game_game_teams" do 
+      it "merges Team attribute data into Game attribuest in @games" do
       @futbol.merge_teams_to_game_game_teams
       expect(@futbol.games[0].home_team_name).not_to eq(nil)
       expect(@futbol.games[0].away_team_name).not_to eq(nil)
@@ -50,13 +49,13 @@ RSpec.describe Futbol do
   end
 
   describe "#check_no_extraneous" do
-    it 'returns true if number of unique game ids in @games and @game_teams is equal' do
+    it "returns true if number of unique game ids in @games and @game_teams is equal" do
       expect(@futbol.check_no_extraneous).to be true
     end
   end
 
-  describe '#check_no_bad_teams' do
-    it 'returns true if the number of teams is equal in @games, @teams, and @game_teams' do 
+  describe "#check_no_bad_teams" do
+    it "returns true if the number of teams is equal in @games, @teams, and @game_teams" do 
       expect(@futbol.check_no_bad_teams).to be true
     end
   end

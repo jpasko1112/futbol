@@ -24,7 +24,6 @@ RSpec.describe GameTeam do
       expect(@gameteam.shots).to eq(4)
       expect(@gameteam.tackles).to eq(3)
       expect(@gameteam.result).to eq("w")
-
     end
   end
 end

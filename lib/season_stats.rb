@@ -1,4 +1,4 @@
-require_relative 'futbol'
+require_relative "futbol"
 
 class SeasonStats < Futbol
 
@@ -35,7 +35,6 @@ class SeasonStats < Futbol
     end.first
   end
   
-
   def worst_coach(season)
     coach_wins = num_coach_wins(season)
     coach_wins.each_pair do |coach, wins|

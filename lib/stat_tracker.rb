@@ -13,9 +13,12 @@ class StatTracker
   
   def self.from_csv(locations)
     stat_tracker = StatTracker.new(locations)
-    stat_tracker.game.merge_game_game_teams.merge_teams_to_game_game_teams
-    stat_tracker.league.merge_game_game_teams.merge_teams_to_game_game_teams
-    stat_tracker.season.merge_game_game_teams.merge_teams_to_game_game_teams
+    stat_tracker.game.merge_game_game_teams
+    stat_tracker.game.merge_teams_to_game_game_teams
+    stat_tracker.league.merge_game_game_teams
+    stat_tracker.league.merge_teams_to_game_game_teams
+    stat_tracker.season.merge_game_game_teams
+    stat_tracker.season.merge_teams_to_game_game_teams
     stat_tracker
   end
 
