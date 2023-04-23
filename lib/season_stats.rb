@@ -1,4 +1,4 @@
-require_relative 'futbol'
+require_relative "futbol"
 
 class SeasonStats < Futbol
 
