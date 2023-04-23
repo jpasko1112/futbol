@@ -7,7 +7,7 @@ class GamesStats < Futbol
   end
 
   def highest_total_score
-    games.map do |game|
+    @games.map do |game|
       game.away_team_goals + game.home_team_goals
     end.sort.last
   end
@@ -19,7 +19,7 @@ class GamesStats < Futbol
   end
 
   def lowest_total_score
-    games.map do |game|
+    @games.map do |game|
       game.away_team_goals + game.home_team_goals
     end.sort.first
   end
@@ -50,14 +50,14 @@ class GamesStats < Futbol
 
   def count_of_games_by_season
     game_count = Hash.new(0)
-    games.map do |game|
+    @games.map do |game|
       game_count[game.season] += 1
     end
     game_count
   end
 
   def average_goals_per_game
-    all_season_goals = games.sum do |game|
+    all_season_goals = @games.sum do |game|
       game.away_team_goals + game.home_team_goals
     end
     all_season_goals.fdiv(games.length).round(2)
@@ -71,7 +71,7 @@ class GamesStats < Futbol
 
   def goalie_goals
     go_gos = Hash.new(0)
-    games.each do |game|
+    @games.each do |game|
       go_gos[game.season] += game.total_score
     end
     go_gos

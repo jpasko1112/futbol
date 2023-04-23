@@ -14,6 +14,7 @@ RSpec.describe GamesStats do
 
     @games_stats = GamesStats.new(@locations)
     @games_stats.merge_game_game_teams
+    @games_stats.merge_teams_to_game_game_teams
   end
 
   describe "#initialize" do
