@@ -93,7 +93,7 @@ RSpec.describe LeagueStats do
 
     it "filter by team id" do
       expect(@league_stats.filter_by_team_id("3")).to be_an(Array)
-      expect(@league_stats.filter_by_team_id("3")[0]).to be_a(Array)
+      expect(@league_stats.filter_by_team_id("3")[0]).to be_a(Game)
     end
   end
 end
