@@ -25,34 +25,41 @@ RSpec.describe LeagueStats do
   describe "#count_of_teams" do
     it "counts teams and returns an integer" do
       expect(@league_stats.count_of_teams).to eq(32)
+      expect(@league_stats.count_of_teams).to be_an(Integer)
     end
   end
   
   describe "#offenses" do
     it "returns a string of the best offense" do
       expect(@league_stats.best_offense).to eq("Reign FC")
+      expect(@league_stats.best_offense).to be_a(String)
     end
     
     it "returns a string of the worst offense" do
       expect(@league_stats.worst_offense).to eq("Utah Royals FC") 
+      expect(@league_stats.worst_offense).to be_a(String)
     end
   end
 
   describe "#scores" do
     it "returns string of highest scoring visitor" do
       expect(@league_stats.highest_scoring_visitor).to eq("FC Dallas")
+      expect(@league_stats.highest_scoring_visitor).to be_a(String)
     end
   
     it "returns string of highest scoring home team" do
       expect(@league_stats.highest_scoring_home_team).to eq("Reign FC")
+      expect(@league_stats.highest_scoring_home_team).to be_a(String)
     end
 
     it "returns string of lowest scoring visitor" do
       expect(@league_stats.lowest_scoring_visitor).to eq("San Jose Earthquakes")
+      expect(@league_stats.lowest_scoring_visitor).to be_a(String)
     end
 
     it "returns string of lowest scoring home team" do 
       expect(@league_stats.lowest_scoring_home_team).to eq("Utah Royals FC")
+      expect(@league_stats.lowest_scoring_home_team).to be_a(String)
     end
   end
 
@@ -86,7 +93,7 @@ RSpec.describe LeagueStats do
 
     it "filter by team id" do
       expect(@league_stats.filter_by_team_id("3")).to be_an(Array)
-      expect(@league_stats.filter_by_team_id("3")[0]).to be_a(Game)
+      expect(@league_stats.filter_by_team_id("3")[0]).to be_a(Array)
     end
   end
 end
