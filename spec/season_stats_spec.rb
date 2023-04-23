@@ -98,7 +98,7 @@ RSpec.describe SeasonStats do
   describe "#num_team_tackles" do 
     it "returns a hash with team name as keys and number of tackles as values" do 
       expect(@season_stats.num_team_tackles("20132014")).to be_a(Hash)
-      expect((@season_stats.num_team_tackles("20132014")).keys[0]).to be_an(Integer)
+      expect((@season_stats.num_team_tackles("20132014")).keys[0]).to be_a(String)
     end
   end
 
